@@ -1,2 +1,157 @@
 @import "vars";
 @import "mixins";
+
+#header {
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    color: $white-color;
+    transition: 0.25s;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $light-grey;
+        opacity: 0;
+    }
+    &:hover {
+        background-color: $white-color;
+        color: $text-color;
+        &::before {
+            opacity: 1;
+        }
+        #logo a {
+            .white {
+                display: none;
+            }
+            .black {
+                display: block;
+            }
+        }
+        #gnb {
+            .list {
+                .depth02 {
+                    display: block;
+                }
+            }
+        }
+        .sideMenu {
+            .all {
+                span {
+                    background-color: $text-color;
+                }
+            }
+        }
+    }
+    #logo {
+        position: absolute;
+        left: 50px;
+        a {
+            display: flex;
+            height: 100px;
+            align-items: center;
+            .white {
+                display: block;
+            }
+            .black {
+                display: none;
+            }
+        }
+    }
+    #gnb {
+        .list {
+            display: flex;
+            justify-content: center;
+            transition: 0.25s;
+            > li {
+                &:hover {
+                    > a {
+                        color: $hover-color;
+                        &::after {
+                            transform: scaleX(1);
+                        }
+                    }
+                }
+                > a {
+                    display: flex;
+                    height: 100px;
+                    padding: 0 50px;
+                    font-size: 1.9rem;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: 500;
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        height: 2px;
+                        top: 100px;
+                        right: 15px;
+                        left: 15px;
+                        transform: scaleX(0);
+                        transition: 0.25s;
+                        background-color: $main-color;
+                        content: "";
+                        display: block;
+                    }
+                }
+                .depth02 {
+                    display: flex;
+                    flex-direction: column;
+                    display: none;
+                    justify-content: center;
+                    align-items: center;
+                    color: $text-color;
+                    li {
+                        &:hover {
+                            a {
+                                color: $hover-color;
+                            }
+                        }
+                        a {
+                            display: flex;
+                            height: 50px;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .sideMenu {
+        display: flex;
+        height: 100px;
+        position: absolute;
+        top: 0;
+        right: 50px;
+        align-items: center;
+        .all {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            margin-left: 50px;
+            span {
+                display: block;
+                width: 30px;
+                height: 2px;
+                background-color: $white-color;
+                position: absolute;
+                left: 10px;
+                transition: 0.25s;
+                &:nth-child(1) {
+                    top: 14px;
+                }
+                &:nth-child(2) {
+                    top: 24px;
+                }
+                &:nth-child(3) {
+                    top: 34px;
+                }
+            }
+        }
+    }
+}

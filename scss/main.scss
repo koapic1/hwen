@@ -1,6 +1,10 @@
 @import "vars";
 @import "mixins";
 
+html {
+    height: 3000px;
+}
+
 #main {
     #mainVisual {
         overflow: hidden;
@@ -17,6 +21,7 @@
         //     left: 0;
         //     top: 0;
         // }
+        position: relative;
         video {
             width: 100%;
             height: 100vh;
@@ -30,8 +35,99 @@
                 font-size: $xx-large-size;
                 margin-bottom: 30px;
             }
-            .sub {
-                font-size: $medium-size;
+        }
+        .down {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            bottom: 0;
+            right: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            a {
+                color: #fff;
+                span {
+                    font-size: $xx-large-size;
+                }
+            }
+        }
+    }
+    // mainVisual end
+    #business {
+        .contents {
+            width: 1200px;
+            margin: auto;
+            .list {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 50px;
+                overflow: hidden;
+                transition: 0.5s;
+                a {
+                    width: 25%;
+                    &:hover {
+                        .icon,
+                        p {
+                            display: none;
+                        }
+                        .hoverBox {
+                            transform: translateY(0);
+                            display: block;
+                        }
+                    }
+                    li {
+                        .icon {
+                            width: 305px;
+                            background-repeat: no-repeat;
+                            background-position: 50%;
+                            text-align: center;
+                            padding: 100px 0 0;
+                            p {
+                                font-size: $large-size;
+                                margin-top: 50px;
+                                font-weight: 600;
+                            }
+                            &:nth-child(1) {
+                                background-image: url(../images/main/main_business_icon01.png);
+                            }
+                            &:nth-child(2) {
+                                background-image: url(../images/main/main_business_icon02.png);
+                            }
+                            &:nth-child(3) {
+                                background-image: url(../images/main/main_business_icon03.png);
+                            }
+                            &:nth-child(4) {
+                                background-image: url(../images/main/main_business_icon04.png);
+                            }
+                        }
+                        .hoverBox {
+                            position: relative;
+                            transform: translateY(50px);
+                            transition: 0.5s;
+                            .img {
+                                width: 100%;
+                            }
+                            .hoverTitle {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                color: $white-color;
+                                text-align: center;
+                                width: 100%;
+                                .subTitle {
+                                    font-size: $h2;
+                                    margin-bottom: 20px;
+                                    font-weight: 500;
+                                }
+                                .subTxt {
+                                    font-size: $medium-size;
+                                    line-height: 1.5;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
