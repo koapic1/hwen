@@ -1,6 +1,10 @@
 @import "vars";
 @import "mixins";
 
+html {
+    scroll-behavior: smooth;
+}
+
 #header {
     width: 100%;
     position: fixed;
